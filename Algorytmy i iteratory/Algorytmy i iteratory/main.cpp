@@ -67,6 +67,7 @@ public:
 			it->print();
 			cout << endl;
 		}
+		cout << "_____________________________" << endl;
 	}
 
 };
@@ -75,8 +76,18 @@ int main()
 {
 	srand(time(NULL));
 	
-	Group g3(3);
-	g3.printAll();
+	list<Group> groups;
+	for (int i = 0; i < 3; i++)
+	{
+		groups.push_back(Group(i + 1));
+	}
+	for (list<Group>::iterator it =groups.begin(); it != groups.end(); it++)
+	{
+		it->printAll();
+	}
+
+
+	
 	
 	
 	
