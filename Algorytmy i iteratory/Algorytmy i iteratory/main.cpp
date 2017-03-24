@@ -13,25 +13,35 @@ int giveMark()
 // Stworz klase Uczen zawierajaca pola ID typu int, kontener na STALA liczbe ocen oraz pole typu double o nazwane srednia
 class Student 
 {
+
 	int id;
 	array<int, 5> grades;
-	double mean;
-public:
+	float mean;
+
 	// Utworz konstruktor jednoargumentowy dla obiektu klasy Uczen, ktory przyjmuje
 	//wartoœc typu int bedaca ID nowoutworzonego obiektu typu Uczen. Konstruktor powinien ponadto
 	//wypelnic kontener z ocenami za pomoca wczesniej zdefiniowanej funkcji wpiszOceny()
 	// oraz obliczy ich srednia korzystajac z algorytmow biblioteki STL
+public:
 	Student(int id_)
 		:id(id_)
 	{
-		for (array<int, 5>::iterator it = grades.begin(); it != grades.begin();it++)
+		for ( int i=0;i<grades.size();i++)
 		{
-			*it = giveMark();
+			grades[i] = giveMark();
 		}
-		mean = accumulate(grades.begin(), grades.begin(),0) / grades.size();
+		mean = (float)accumulate(grades.begin(), grades.end(),0) / (float)grades.size();
 
 	}
-	
+	void print()
+	{
+		cout << "Student ID: " << id << "\nGrades:";
+		for (array<int, 5>::iterator it = grades.begin(); it != grades.end(); it++)
+		{
+			cout << *it << " ";
+		}
+		cout << "\nMean: " << mean << endl;
+	}
 };
 // Zdefiniuj klase Klasa/grupa ktora bedzie zawierac pole ID oraz kontener obiektow typu Uczen.
 // Napisz konstruktor jednoargumentowy, ktory przyjmie wartosc typu int i przypisze ja do id Klasy/Grupy
@@ -57,6 +67,7 @@ int main()
 	srand(time(NULL));
 	
 	Student s1(1);
+	s1.print();
 	
 	
 	
