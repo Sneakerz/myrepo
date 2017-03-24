@@ -36,6 +36,7 @@ class Group
 {
 	int id;
 	list<Student> students;
+public:
 	Group(int id_)
 		:id(id_)
 	{
