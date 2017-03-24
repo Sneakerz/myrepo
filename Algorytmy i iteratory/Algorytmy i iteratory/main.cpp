@@ -59,6 +59,15 @@ public:
 			students.push_back(Student(i));
 		}
 	}
+	void printAll()
+	{
+		cout << "Group " << id << " students list:\n";
+		for (list<Student>::iterator it = students.begin(); it != students.end(); it++)
+		{
+			it->print();
+			cout << endl;
+		}
+	}
 
 };
 
@@ -66,8 +75,8 @@ int main()
 {
 	srand(time(NULL));
 	
-	Student s1(1);
-	s1.print();
+	Group g3(3);
+	g3.printAll();
 	
 	
 	
