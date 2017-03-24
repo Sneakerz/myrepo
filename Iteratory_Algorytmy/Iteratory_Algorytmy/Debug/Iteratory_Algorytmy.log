@@ -1,0 +1,4 @@
+﻿  Iteratory_Algorytmy.cpp
+c:\users\alex\source\repos\alex-porebski-gr61-repo2\iteratory_algorytmy\iteratory_algorytmy\iteratory_algorytmy.cpp(131): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Iteratory_Algorytmy.vcxproj -> C:\Users\Alex\Source\Repos\Alex-Porebski-gr61-repo2\Iteratory_Algorytmy\Debug\Iteratory_Algorytmy.exe
+  Iteratory_Algorytmy.vcxproj -> C:\Users\Alex\Source\Repos\Alex-Porebski-gr61-repo2\Iteratory_Algorytmy\Debug\Iteratory_Algorytmy.pdb (Full PDB)
