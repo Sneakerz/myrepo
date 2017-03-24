@@ -10,15 +10,15 @@
 #include <numeric>
 #include <ctime>
 #include <string>
-#include <deque>
-#include <functional>
+
+
 
 using namespace std;
 
 class Student {
 public:
 	int id;
-	deque<int> oceny;
+	vector<int> oceny;
 	float srednia = 0;
 
 	Student(int i = 0) :id(i) {
