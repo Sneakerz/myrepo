@@ -31,9 +31,7 @@ public:
 		oceny.clear();
 	};
 
-	void PrzypiszID(int i) {
-		id = i;
-	}
+	
 
 
 	void Wyswietl() {
