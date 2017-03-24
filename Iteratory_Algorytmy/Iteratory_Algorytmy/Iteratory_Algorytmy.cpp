@@ -48,7 +48,7 @@ public:
 
 
 		srednia = (float)accumulate(oceny.begin(), oceny.end(), 0) / oceny.size();
-		//cout << "Nowa srednia = " << srednia << endl;
+
 	}
 
 
@@ -69,8 +69,8 @@ public:
 	Grupa(string n, int id) : nazwa(n), idG(id) {
 
 		Student *tmp;
-		for (int i = 1; i < 6; i++) {
-			tmp = new Student;
+		for (int i = 1; i < 16; i++) {
+			tmp = new Student(i);
 			lista.push_back(*tmp);
 		}	
 	}
@@ -80,13 +80,6 @@ public:
 	}
 
 
-	void PrzypiszID() {
-		int i=1;
-		for_each(lista.begin(), lista.end(), [&i](Student &iter) {
-			iter.PrzypiszID(i);
-			i++;
-		});
-	}
 
 	void LiczSredniaG() {
 		for (auto iter = lista.begin();iter != lista.end();iter++)
@@ -110,14 +103,40 @@ public:
 		});
 	}
 
+	void WyswietlNaOdwrót() {
+		cout << "Grupa " << nazwa << " o id = " << idG << endl;
+		for (auto iter = lista.rbegin();iter != lista.rend();iter++)
+			iter->Wyswietl();
+
+	}
+
 	void Sort() {
 		lista.sort([](Student a, Student b) {
-			if (a.srednia < b.srednia) return true;
-			return false;
+			if (a.srednia < b.srednia)  return true;
+			else return false;
 		});
 
 	}
 
+	void Usun() {
+		int i = 0;
+		remove_if(lista.begin(), lista.end(), [&i](Student iter) {
+			if (iter.srednia < 3) {
+				i++;
+				return true;
+			}
+			else {				
+			    return false;
+		}
+		});
+		auto iter = lista.end();
+		for (int j = 0; j < i;j++) {
+			iter--;
+			lista.erase(iter);
+			iter = lista.end();
+		}
+
+	}
 
 };
 
@@ -132,14 +151,20 @@ int main()
 	
 
 	Grupa moja("Fajna", 3);
-	moja.PrzypiszID();
+
 	moja.LiczSredniaG();
+
 	cout << endl;
+
 	moja.Sort();
-	moja.Wyswietl();
+    moja.Wyswietl();
 
 	getchar();
 
+	moja.Usun();
+	moja.Wyswietl();
+
+	getchar();
 	
 
     return 0;
